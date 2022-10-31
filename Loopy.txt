@@ -1,0 +1,112 @@
+
+
+			Loopy-Getbit
+@davideanastasia
+davideanastasia Improve manual with MIDI Setup for firmware v.2x
+Latest commit ed2af30 on Feb 7, 2021
+ History
+ 1 contributor
+106 lines (73 sloc)  6.39 KB
+
+How To Build Loopy
+Loopy is a medium complexity project for the occasional DIY-er, while it should be fairly straightforward for an avid one.
+
+Step 1: Drilling
+In my opinion, the hardest part of the build process is drilling the enclosure, due to the large number of holes.
+
+My method is the following:
+
+print the drilling template specific for your PCB
+
+attach the drilling template to the enclosure being as precise as you can Drilling Template Drilling Template
+
+use a good quality center punch to set a drilling guide for each hole. It is very important especially for the holes on the front panel
+
+drill every hole with a pilot bit (either 2mm, 2.5mm or 3mm works, but I usually tend towards the smaller size)
+
+work your way up through the holes up to the right size for your components, but don't overdrill the front panel 5mm LED holes
+
+slightly overdrill the holes on the backpanel, as this will make easier to insert the PCB at the end
+
+clean the enclosure and get ready for soldering Drilling Template
+
+Step 2: Soldering
+Important: don't solder any LED on the board, as otherwise you won't be able to box up your project.
+
+All the jacks are mounted on the two boards, so I suggest to work your way up into the enclosure in the following order:
+
+solder wires to all the footswitches and set them in place inside the enclosure: use a reasonable length that will allow you to solder the other end on the main board Footswitch
+
+solder all the components on the small board, including all the wires that will connect to the main board and the MIDI sockets Small Board
+
+install both midi jacks and power socket into the enclosure
+
+install the small PCB on the bottom of the enclosure, screwing all the jacks into the right place. If you want to be extra sure none of the solder joins touches the enclosure, trim them the best you can and install a small plastic sheet at the bottom of the enclosure, secured with double-sided tape (not mandatory)
+
+solder the midi socket, trimming the wires to avoid them being loose in the enclosure.
+
+solder all the components on the main board, but don't solder the LED Main Board
+
+solder all the connection wires between the two boards, including all the footswitches and the power socket Power Up
+
+you should now be able to power up your project, and check the activation of the all the relays, as well that all the voltages are correct (especially in and out of the voltage regulator)
+
+I have uploaded a small video on YouTube that shows how the board should look like at this stage.
+
+Step 3: Finish it up & LED installation
+If you got at this stage of the build, you are ready for the tricky part: the installation of the LED. You need to purchase LED with long leads (so the super common one available on eBay might not do): as you might have noticed, LED will be soldered into the main board and mounted inside the 5mm hole on the front panel directly.
+
+The following steps should get you over the finishing line:
+
+if your project powers up correctly and you can hear the "click" of the relay when you use the footswitch, you know you are on track
+
+install -- without soldering -- all the LED into the main board: silkscreen should help you get them in the correct orientation: ideally they should light up as (and when) expected by the operational mode your looper is into LED Test
+
+check all the LED light correctly triggering all the features (check the manual for more info)
+
+lock all the leads in place using small pieces of masking tapes, but don't bend the leads: this will allow you to rotate the board into its place without dropping all the LED out of the board
+
+tight the nut of a few jack socket so that the main board is in place
+
+one by one, release LED from their masking tape and make sure they finds the right hole on the front panel: might take a bit of time, so be patient
+
+you should be able now to power up the project and do another rundown before soldering all the LED (I strongly suggestt you do this!)
+
+if you are happy everything is working as expected, you can start soldering one by one all the LED and remove the excess for each lead (shouldn't be much)
+
+tight all the sockets
+
+job done, enjoy your programmable looper! :-)
+
+Looper Midi Socket Looper
+
+Components Guide
+Firmware
+Firmware	Description
+v1	Original version, burnt into the first batch of chips
+v1b	Use MIDI out as MIDI Thru; Better timing in button debouncing
+v2(a, b)	MIDI Control Change + MIDI Control Panel
+Firmware Compatibility Matrix
+Firmware \ PCB	PCB.20200806	PCB.20201125
+v1	Yes	Yes
+v1b	Yes	Yes
+v2a	Yes	Yes
+v2b	Yes	Yes
+Relays
+Loopy uses miniaturised signal relays. Some of the possible options are:
+
+Zettler AZ850-5
+NEC EA2-5NU/EA2-5NJ (other brands produce this item with the same name)
+Fujitsu A-5W-K
+Panasonic/NAIS TQ2-5V
+Some of these models are discontinued, but any other signal relay with the same pinout will work just fine. I have uploaded a few datasheets for consultation in the datasheets folder.
+
+LED
+Any 5mm LED work in this project, but you want to be careful with the type you use and the resistors you couple with it.
+
+I have personally used 400mcd LED like the one here with an 820R resistor, however you must use a larger resistor value with high brightness LED, or you'll end up with a front panel too bright to be usable.
+
+I strongly suggest to buy decent quality one and test all of them before mouting: undoing the LED installation can be a painful job.
+
+Audio Jack
+I suggest to use the REAN/Neutrik NYS2152, but the REAN/Neutrik NYS215 works too (stereo version): PCB is designed around this footprint and the schematic uses stereo jacks, so an additional (unused, unconnected) hole is available on the PCB. this should give you some flexibility in the sourcing of the part. Drawing diagram for these jacks is in the datasheets folder.
